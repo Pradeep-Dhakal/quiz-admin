@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:quizadminpanel/screens/user/add_Quizz.dart';
 
 import '../login.dart';
 import 'change_password.dart';
@@ -17,7 +18,8 @@ class _UserMainState extends State<UserMain> {
   int _selectedIndex = 0;
   static List<Widget> _widgetOptions = <Widget>[
     Dashboard(),
-    Profile(),
+    // Profile(),
+    AddQuizz(),
     ChangePassword(),
   ];
   void _onItemTapped(int index) {
@@ -58,8 +60,8 @@ class _UserMainState extends State<UserMain> {
             label: 'Dashboard',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'My Profile',
+            icon: Icon(Icons.add),
+            label: 'Add Quizz',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
