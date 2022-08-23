@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             title: 'Quizz app admin panel',
             theme: ThemeData(
-              primarySwatch: Colors.deepPurple,
+              primarySwatch: Colors.teal,
             ),
             debugShowCheckedModeBanner: false,
             home: Login(),

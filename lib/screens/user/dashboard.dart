@@ -27,7 +27,13 @@ class _DashboardState extends State<Dashboard> {
               return Card(
                 child: ListTile(
                   leading: GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const EditQuizz()),
+                      );
+                    },
                     child: const Icon(Icons.edit),
                   ),
                   trailing: IconButton(
