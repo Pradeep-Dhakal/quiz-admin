@@ -1,7 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_database/firebase_database.dart';
-
 import 'package:flutter/material.dart';
 
 class AddQuizz extends StatefulWidget {
@@ -23,7 +20,6 @@ class AddQuizzState extends State<AddQuizz> {
   // qoptions.insert(0,option1Controller.text);
 
   // late DatabaseReference dbref;
-  final dbref = FirebaseDatabase.instance.ref();
   final CollectionReference quizqa =
       FirebaseFirestore.instance.collection('questions');
 
@@ -44,14 +40,6 @@ class AddQuizzState extends State<AddQuizz> {
             children: [
               const SizedBox(
                 height: 50,
-              ),
-              const Text(
-                'Inserting data in Firebase Realtime Database',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w500,
-                ),
-                textAlign: TextAlign.center,
               ),
               const SizedBox(
                 height: 30,

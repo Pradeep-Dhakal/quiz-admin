@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:quizadminpanel/screens/user/dashboard.dart';
+import 'package:quizadminpanel/screens/user/user_main.dart';
 import 'screens/login.dart';
 
 void main() async {
@@ -29,7 +32,18 @@ class MyApp extends StatelessWidget {
               primarySwatch: Colors.teal,
             ),
             debugShowCheckedModeBanner: false,
-            home: Login(),
+            home: Scaffold(
+              body: StreamBuilder<User?>(
+                stream: FirebaseAuth.instance.authStateChanges(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    return UserMain();
+                  } else {
+                    return Login();
+                  }
+                },
+              ),
+            ),
           );
         });
   }

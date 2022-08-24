@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:quizadminpanel/screens/user/editquizz.dart';
@@ -28,10 +30,12 @@ class _DashboardState extends State<Dashboard> {
                 child: ListTile(
                   leading: GestureDetector(
                     onTap: () {
+                      print(document.id);
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const EditQuizz()),
+                            builder: (context) => EditQuiz(
+                                id: document.id, name: document['question'])),
                       );
                     },
                     child: const Icon(Icons.edit),
