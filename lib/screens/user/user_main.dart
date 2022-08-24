@@ -1,11 +1,11 @@
+// ignore_for_file: prefer_const_constructors_in_immutables, library_private_types_in_public_api, prefer_final_fields, sort_child_properties_last
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:quizadminpanel/screens/user/add_Quizz.dart';
-
 import '../login.dart';
 import 'change_password.dart';
 import 'dashboard.dart';
-import 'profile.dart';
 
 class UserMain extends StatefulWidget {
   UserMain({Key? key}) : super(key: key);
@@ -18,7 +18,6 @@ class _UserMainState extends State<UserMain> {
   int _selectedIndex = 0;
   static List<Widget> _widgetOptions = <Widget>[
     Dashboard(),
-    // Profile(),
     AddQuizz(),
     ChangePassword(),
   ];
@@ -35,7 +34,7 @@ class _UserMainState extends State<UserMain> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text("Welcome User"),
+            const Text("Quiz Admin"),
             ElevatedButton(
               onPressed: () async => {
                 await FirebaseAuth.instance.signOut(),
@@ -46,8 +45,8 @@ class _UserMainState extends State<UserMain> {
                     ),
                     (route) => false)
               },
-              child: Text('Logout'),
-              style: ElevatedButton.styleFrom(primary: Colors.blueGrey),
+              child: const Text('Logout'),
+              style: ElevatedButton.styleFrom(primary: Colors.teal),
             )
           ],
         ),
@@ -65,7 +64,7 @@ class _UserMainState extends State<UserMain> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
-            label: 'Change Password',
+            label: 'Setting',
           ),
         ],
         currentIndex: _selectedIndex,

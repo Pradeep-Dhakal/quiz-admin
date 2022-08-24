@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors_in_immutables, library_private_types_in_public_api, prefer_final_fields, sort_child_properties_last
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -36,6 +38,7 @@ class _ChangePasswordState extends State<ChangePassword> {
         MaterialPageRoute(builder: (context) => Login()),
       );
       ScaffoldMessenger.of(context).showSnackBar(
+        // ignore: prefer_const_constructors
         SnackBar(
           backgroundColor: Colors.orangeAccent,
           content: Text(
@@ -76,7 +79,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                 },
               ),
             ),
-            ElevatedButton(
+            MaterialButton(
               onPressed: () {
                 // Validate returns true if the form is valid, otherwise false.
                 if (_formKey.currentState!.validate()) {
@@ -90,6 +93,12 @@ class _ChangePasswordState extends State<ChangePassword> {
                 'Change Password',
                 style: TextStyle(fontSize: 18.0),
               ),
+              color: Colors.teal,
+              textColor: Colors.white,
+              minWidth: 50,
+              height: 40,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15)),
             ),
           ],
         ),

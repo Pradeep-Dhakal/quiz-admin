@@ -1,7 +1,8 @@
+// ignore_for_file: prefer_const_constructors_in_immutables, library_private_types_in_public_api, prefer_final_fields, sort_child_properties_last
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:quizadminpanel/screens/user/dashboard.dart';
 import 'package:quizadminpanel/screens/user/user_main.dart';
 import 'screens/login.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         builder: (context, snapshot) {
           // Check for Errors
           if (snapshot.hasError) {
-            print("Something Went Wrong");
+            // print("Something Went Wrong");
           }
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(child: CircularProgressIndicator());

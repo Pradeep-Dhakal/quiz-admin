@@ -1,4 +1,4 @@
-import 'dart:math';
+// ignore_for_file: prefer_const_constructors_in_immutables, library_private_types_in_public_api, prefer_final_fields, sort_child_properties_last
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -102,8 +102,6 @@ class _QditQuizState extends State<EditQuiz> {
                 height: 50,
               ),
               TextFormField(
-                onChanged: (value) => value = widget.name,
-                initialValue: widget.name,
                 controller: correctAnswewrController,
                 keyboardType: TextInputType.text,
                 textInputAction: TextInputAction.next,

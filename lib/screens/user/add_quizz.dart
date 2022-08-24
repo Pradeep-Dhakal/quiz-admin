@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors_in_immutables, library_private_types_in_public_api, prefer_final_fields, sort_child_properties_last
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -16,18 +18,8 @@ class AddQuizzState extends State<AddQuizz> {
   var option4Controller = TextEditingController();
   var correctAnswewrController = TextEditingController();
   var qanswers = [];
-
-  // qoptions.insert(0,option1Controller.text);
-
-  // late DatabaseReference dbref;
   final CollectionReference quizqa =
       FirebaseFirestore.instance.collection('questions');
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   dbref = FirebaseDatabase.instance.ref().child('questions');
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -38,12 +30,6 @@ class AddQuizzState extends State<AddQuizz> {
           padding: EdgeInsets.all(8.0),
           child: Column(
             children: [
-              const SizedBox(
-                height: 50,
-              ),
-              const SizedBox(
-                height: 30,
-              ),
               TextField(
                 controller: questionController,
                 keyboardType: TextInputType.text,
@@ -66,42 +52,51 @@ class AddQuizzState extends State<AddQuizz> {
                 ),
               ),
               const SizedBox(
-                height: 30,
+                height: 20,
               ),
               TextField(
                 controller: option2Controller,
                 keyboardType: TextInputType.text,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'op2',
-                  hintText: 'Enter',
+                  labelText: 'Option 3',
+                  hintText: 'Enter Option 3',
                 ),
+              ),
+              const SizedBox(
+                height: 20,
               ),
               TextField(
                 controller: option3Controller,
                 keyboardType: TextInputType.text,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'op3',
-                  hintText: 'Enter op3',
+                  labelText: 'Option 3',
+                  hintText: 'Enter option 3',
                 ),
+              ),
+              const SizedBox(
+                height: 20,
               ),
               TextField(
                 controller: option4Controller,
                 keyboardType: TextInputType.text,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'op4',
-                  hintText: 'Enter',
+                  labelText: 'Option 4',
+                  hintText: 'Enter option 4',
                 ),
+              ),
+              const SizedBox(
+                height: 20,
               ),
               TextField(
                 controller: correctAnswewrController,
                 keyboardType: TextInputType.text,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'Correct option',
-                  hintText: 'Enter',
+                  labelText: 'Correct Option',
+                  hintText: 'Enter corredt option',
                 ),
               ),
               const SizedBox(
@@ -109,27 +104,6 @@ class AddQuizzState extends State<AddQuizz> {
               ),
               MaterialButton(
                 onPressed: () async {
-                  // print(qanswers);
-                  // qanswers[0] = option1Controller.text;
-                  // qanswers[1] = option2Controller.text;
-                  // qanswers[2] = option3Controller.text;
-                  // qanswers[3] = option4Controller.text;
-
-                  // for (var i = 0; i < 4; i++) {
-                  //   if (i == 0) {
-                  //     qanswers[i] = option1Controller.text;
-                  //   }
-                  //   if (i == 1) {
-                  //     qanswers[i] = option2Controller.text;
-                  //   }
-                  //   if (i == 2) {
-                  //     qanswers[i] = option3Controller.text;
-                  //   }
-                  //   if (i == 3) {
-                  //     qanswers[i] = option4Controller.text;
-                  //   }
-                  // }
-
                   await quizqa.add({
                     'question': questionController.text,
                     'correctAnswer': correctAnswewrController.text,
@@ -140,15 +114,19 @@ class AddQuizzState extends State<AddQuizz> {
                       option4Controller.text
                     ],
                   });
-                  // ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                  //     content:
-                  //         Text('You have successfully deleted a product')));
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('You have successfully deleted a Quiz'),
+                    ),
+                  );
                 },
-                child: const Text('Insert Data'),
-                color: Colors.blue,
+                child: const Text('Add Quiz'),
+                color: Colors.teal,
                 textColor: Colors.white,
-                minWidth: 300,
+                minWidth: 100,
                 height: 40,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15)),
               ),
             ],
           ),
